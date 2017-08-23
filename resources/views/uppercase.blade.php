@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>uppercasedWord: <?php echo $word ?></h1>
+@extends('layouts.master')
 
-</body>
-</html>
+@section('title')
+    <title>Uppercase some word!</title>
+@stop
+
+@section('content')
+    <h1>uppercasedWord: {{ $word }}</h1>
+@stop

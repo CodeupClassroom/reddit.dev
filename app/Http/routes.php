@@ -11,47 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@showWelcome');
 
-Route::get('/uppercase/{word}', function($word) {
-    
-    $data['word'] = strtoupper($word);
+Route::get('/uppercase/{word}', 'HomeController@uppercase');
 
-    return view('uppercase', $data);
+Route::get('/lowercase/{word}', 'HomeController@lowercase');
 
+Route::get('/increment/{number}', 'HomeController@increment');
 
-});
-
-Route::get('/increment/{number}', function($number) {
-    if(is_numeric($number)) {
-        return $number + 1;
-    } else {
-        return 1;
-    }
-});
-
-Route::get('add/{num1}/{num2}', function($num1, $num2) {
-    if(is_numeric($num1) && is_numeric($num2)) {
-        return $num1 + $num2;
-    }
-});
-
-// Route w/ required parameters
-Route::get('/sayhello/{firstName}/{lastName?}', function($firstName, $lastName = "Bobberson") {
-
-    $data['fullName'] = $firstName . " " . $lastName;
-
-    return view('welcome', $data);
-});
+// Rotue w/ required parameters
+Route::get('/add/{num1}/{num2}', 'HomeController@add');
 
 // Optional parameter w/ default value
-Route::get('/sayhello/{name?}', function($name = "World") {
-    if($name == "Chris") {
-        return redirect('/');
-    } else {
-        $data['fullName'] = $name;
-        return view('welcome', $data);
-    }
-});
+Route::get('/sayhello/{name?}', 'HomeController@sayHello');
+
+Route::get('/rolldice/{guess}', 'HomeController@rolldice');
