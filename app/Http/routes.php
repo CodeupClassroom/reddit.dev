@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| `Application Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register all of the routes for an application.
@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@showWelcome');
+
+Route::get('/uppercase/{word}', 'HomeController@uppercase');
+
+Route::get('/lowercase/{word}', 'HomeController@lowercase');
+
+Route::get('/increment/{number}', 'HomeController@increment');
+
+// Rotue w/ required parameters
+Route::get('/add/{num1}/{num2}', 'HomeController@add');
+
+// Optional parameter w/ default value
+Route::get('/sayhello/{name?}', 'HomeController@sayHello');
+
+Route::get('/rolldice/{guess}', 'HomeController@rolldice');
