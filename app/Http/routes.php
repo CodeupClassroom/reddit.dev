@@ -38,10 +38,5 @@ Route::get('/process/{num}', 'SampleController@processNum');
 Route::get('/double/{num}', 'SampleController@doubleNum');
 Route::get('/triple/{num}', 'SampleController@tripleNum');
 
-
-
-
-
-
-
+Route::get('zero', 'HomeController@resetToZero');
 
