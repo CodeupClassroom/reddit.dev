@@ -24,10 +24,24 @@ class HomeController extends Controller
     public function increment($number)
     {
         if(is_numeric($number)) {
-            return $number + 1;
+            $number += 1;
         } else {
-            return 1;
+            $number = 1;
         }
+
+        if ($number > 5) {
+            return redirect()->action('HomeController@resetToZero');
+        }
+
+        $data['number'] = $number;
+
+        return view('increment')->with($data);
+    }
+
+    public function resetToZero()
+    {
+        $data['number'] = 0;
+        return view('increment')->with($data);
     }
 
     public function add($num1, $num2) 
@@ -57,4 +71,5 @@ class HomeController extends Controller
 
         return view('roll-dice', $data);
     }
+
 }
