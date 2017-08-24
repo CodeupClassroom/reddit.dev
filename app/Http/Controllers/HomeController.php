@@ -57,4 +57,5 @@ class HomeController extends Controller
 
         return view('roll-dice', $data);
     }
+
 }
