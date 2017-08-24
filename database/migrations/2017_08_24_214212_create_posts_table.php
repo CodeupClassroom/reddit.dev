@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,14 @@ class CreateAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads', function(Blueprint $table)
-        {
-            // creates primary key
+        Schema::create('posts', function($table) {
+
             $table->increments('id');
             $table->string('title');
-            $table->string('description');
-            $table->string('image')->nullable();
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('url');
+            $table->string('content');
+            $table->integer('created_by')->unsigned();
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateAdsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ads');
+        Schema::drop('posts');
     }
 }
