@@ -26,7 +26,7 @@ class DogsController extends Controller
      */
     public function create()
     {
-        return "Show create form for Dogs"
+        return view('dogs.create');
     }
 
     /**
@@ -37,7 +37,16 @@ class DogsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // returns all inputs and values as an associative array
+        var_dump($request->all());
+
+        // get the value a specific input
+        var_dump($request->breed);
+
+        // check if an input exists
+        var_dump($request->has('color'));   
+
     }
 
     /**
