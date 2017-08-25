@@ -56,6 +56,7 @@ Route::get('zero', 'HomeController@resetToZero');
 // Refactor
 
 	Route::resource('dogs', 'DogsController');
+	Route::resource('posts', 'PostsController');
 
 
 

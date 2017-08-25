@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class DogsController extends Controller
+class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class DogsController extends Controller
      */
     public function index()
     {
-        return "Showing all dog records";
+        return "Showing all posts...";
     }
 
     /**
@@ -26,7 +26,7 @@ class DogsController extends Controller
      */
     public function create()
     {
-        return "Show create form for Dogs"
+        return "Showing form to create posts...";
     }
 
     /**
@@ -48,7 +48,7 @@ class DogsController extends Controller
      */
     public function show($id)
     {
-        //
+        return "Showing an individual post...";
     }
 
     /**
@@ -59,7 +59,7 @@ class DogsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "Showing form to update an individual post...";
     }
 
     /**
