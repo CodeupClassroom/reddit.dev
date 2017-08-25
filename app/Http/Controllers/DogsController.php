@@ -45,7 +45,17 @@ class DogsController extends Controller
         var_dump($request->breed);
 
         // check if an input exists
-        var_dump($request->has('color'));   
+        var_dump($request->has('color'));  
+
+        $dogFormInputs = $request->all();
+
+        foreach($dogFormInputs as $dogFormInput) {
+            if (empty($dogFormInput)) {
+                return back()->withInput();
+            }
+        } 
+
+        dd($request);
 
     }
 

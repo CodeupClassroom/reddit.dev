@@ -12,9 +12,9 @@
 		<h1>Dog Create Form</h1>
 		<form method="POST" action="{{ action('DogsController@store') }}">
 			{!! csrf_field() !!}
-			<input type="text" name="name" placeholder="Enter Dog Name">
-			<input type="text" name="breed" placeholder="Enter Dog Breed">
-			<input type="text" name="age" placeholder="Enter Dog Age">
+			<input type="text" name="name" placeholder="Enter Dog Name" value="{{ old('name') }}">
+			<input type="text" name="breed" placeholder="Enter Dog Breed" value="{{ old('breed') }}">
+			<input type="text" name="age" placeholder="Enter Dog Age" value="{{ old('age') }}">
 			<button>Submit</button>
 		</form>
 
