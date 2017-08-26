@@ -40,3 +40,31 @@ Route::get('/triple/{num}', 'SampleController@tripleNum');
 
 Route::get('zero', 'HomeController@resetToZero');
 
+
+
+
+// Silliness
+	// Route::get('/dogs', 'DogsController@index');
+	// Route::get('/dogs/create', 'DogsController@create');
+	// Route::post('/dogs', 'DogsController@store');
+	// Route::get('/dogs/{dog}', 'DogsController@show');
+	// Route::get('/dogs/{dog}/edit', 'DogsController@edit');
+	// Route::put('/dogs/{dog}', 'DogsController@update');
+	// Route::delete('/dogs/{dog}', 'DogsController@destroy');
+
+
+// Refactor
+
+	Route::resource('dogs', 'DogsController');
+	Route::resource('posts', 'PostsController');
+
+
+
+
+
+
+
+
+
+
+
