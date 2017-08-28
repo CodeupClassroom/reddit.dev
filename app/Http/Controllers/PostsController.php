@@ -41,14 +41,17 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        // if there are any validation errors, send users back to the create page w/ the old inputs
-        // return back()->withInput();
+
+        $this->validate($request, \App\Models\Post::$rules);
 
         $post = new \App\Models\Post();
         $post->title = $request->title;
         $post->url = $request->url;
         $post->content = $request->content;
         $post->created_by = 1;
+
+
+
         $post->save();
 
         return \Redirect::action('PostsController@index');

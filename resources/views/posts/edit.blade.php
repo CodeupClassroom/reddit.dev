@@ -10,12 +10,15 @@
 		<form method="POST" action="{{ action('PostsController@update', $post->id) }}">
 			{!! csrf_field() !!}
 			<div class="form-group">
+				{!! $errors->first('title', '<span class="help-block">:message</span>') !!}
 				<input class="form-control" type="text" name="title" value="{{ $post->title }}">
 			</div>
 			<div class="form-group">
+				{!! $errors->first('url', '<span class="help-block">:message</span>') !!}
 				<input class="form-control" type="text" name="url" value="{{ $post->url }}">
 			</div>
 			<div class="form-group">
+				{!! $errors->first('content', '<span class="help-block">:message</span>') !!}
 				<textarea class="form-control" name="content">{{ $post->content }}</textarea>
 			</div>
 			{{ method_field('PUT') }}
