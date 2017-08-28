@@ -13,26 +13,36 @@
 
 // The following routes are unrelated to the final Reddit clone example
 Route::get('/', 'HomeController@showWelcome');
-Route::get('/uppercase/{word}', 'HomeController@uppercase');
-Route::get('/lowercase/{word}', 'HomeController@lowercase');
-Route::get('/increment/{number}', 'HomeController@increment');
-Route::get('/add/{num1}/{num2}', 'HomeController@add');
-Route::get('/sayhello/{name}', 'HomeController@showWelcome');
-Route::get('/rolldice/{guess}', 'HomeController@rolldice');
-Route::get('/sample/{str}', 'SampleController@firstLetter');
-Route::get('/process/{num}', 'SampleController@processNum');
-Route::get('/double/{num}', 'SampleController@doubleNum');
-Route::get('/triple/{num}', 'SampleController@tripleNum');
-Route::get('zero', 'HomeController@resetToZero');
 
-// Lecture example resource route
-Route::resource('dogs', 'DogsController');
+// Resource route for requests for Posts
+Route::resource('/posts', 'PostsController');
 
-// Resource route for reddit clone
-Route::resource('posts', 'PostsController');
+Route::get('create-user', function() {
+	$user = new \App\User();
+	$user->name = "admin";
+	$user->email = "admin@codeup.com";
+	$user->password = "password";
+	$user->save();
+});
 
 
-Route::get('orm-test', function(){
+// // Routes below are for demo purposes, not the application.
+// Route::get('/uppercase/{word}', 'HomeController@uppercase');
+// Route::get('/lowercase/{word}', 'HomeController@lowercase');
+// Route::get('/increment/{number}', 'HomeController@increment');
+// Route::get('/add/{num1}/{num2}', 'HomeController@add');
+// Route::get('/sayhello/{name}', 'HomeController@showWelcome');
+// Route::get('/rolldice/{guess}', 'HomeController@rolldice');
+// Route::get('/sample/{str}', 'SampleController@firstLetter');
+// Route::get('/process/{num}', 'SampleController@processNum');
+// Route::get('/double/{num}', 'SampleController@doubleNum');
+// Route::get('/triple/{num}', 'SampleController@tripleNum');
+// Route::get('zero', 'HomeController@resetToZero');
+
+// // Lecture example resource route
+// Route::resource('dogs', 'DogsController');
+
+// Route::get('orm-test', function(){
 
 // adding a new resource	
 	// $dog = new App\Models\Dog();
@@ -66,27 +76,8 @@ Route::get('orm-test', function(){
 
 // delete a resource
 
-	$dog = App\Models\Dog::find(3);
-	$dog->delete();
+	// $dog = App\Models\Dog::find(3);
+	// $dog->delete();
 
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// });
 
