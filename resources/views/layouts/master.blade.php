@@ -14,6 +14,15 @@
 
 </head>
 <body>
+
+@if (session()->has('successMessage'))
+    <div class="alert alert-success">{{ session('successMessage') }}</div>
+@endif
+
+@if (session()->has('errorMessage'))
+    <div class="alert alert-error">{{ session('errorMessage') }}</div>
+@endif
+
     @yield('content')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

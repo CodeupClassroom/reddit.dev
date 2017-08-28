@@ -12,7 +12,7 @@
         </a>
         <p>{{ $post->content }}</p>
         <p>Author's User ID: {{ $post->created_by }}</p>
-        <p>Created at: {{ $post->created_at }} </p>
-        <p>Updated at: {{ $post->updated_at }}</p>
+        <p>Created at: {{ $post->created_at->diffForHumans() }} </p>
+        <p>Updated at: {{ $post->updated_at->diffForHumans() }}</p>
     </div>
 @stop
