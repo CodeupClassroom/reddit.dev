@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return "Showing form to create posts...";
+        return view('posts.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return back()->withInput();
     }
 
     /**
@@ -59,7 +59,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return "Showing form to update an individual post...";
+        return view('posts.edit');
     }
 
     /**
@@ -71,7 +71,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd("Update ran");
     }
 
     /**
@@ -82,6 +82,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "Post is Deleted";
     }
 }
