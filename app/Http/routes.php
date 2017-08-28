@@ -32,6 +32,55 @@ Route::resource('dogs', 'DogsController');
 Route::resource('posts', 'PostsController');
 
 
+Route::get('orm-test', function(){
+
+// adding a new resource	
+	// $dog = new App\Models\Dog();
+	// $dog->name = 'Sparky';
+	// $dog->breed='Pug';
+	// $dog->age  = 2;
+	// $dog->save();
+
+// getting all records of a resource
+
+	// $dogs = App\Models\Dog::all();
+
+	// foreach($dogs as $dog) {
+	// 	echo $dog->name;
+	// }
+
+	// dd($dogs);
+
+// finding a single record
+
+	// $dog = App\Models\Dog::find(1);
+	// echo $dog->name;
+
+// updating a resource
+
+	// $dog = App\Models\Dog::find(1);
+
+	// $dog->name = "Sporty";
+	// $dog->save();
+
+
+// delete a resource
+
+	$dog = App\Models\Dog::find(3);
+	$dog->delete();
+
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
