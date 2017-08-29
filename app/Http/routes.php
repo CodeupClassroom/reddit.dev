@@ -1,5 +1,7 @@
 <?php
 
+use \App\Avenger;
+
 /*
 |--------------------------------------------------------------------------
 | `Application Routes
@@ -80,4 +82,12 @@ Route::get('create-user', function() {
 	// $dog->delete();
 
 // });
+
+
+
+
+
+
+
+
 
