@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
+use Log;
 
 class PostsController extends Controller
 {
@@ -17,12 +19,14 @@ class PostsController extends Controller
     public function index()
     {
         // all() gives all results
-        // $posts = \App\Models\Post::all();
+        // $posts = Post::all();
 
         // paginate()
-        $posts = \App\Models\Post::paginate(4);
+        $posts = Post::paginate(4);
 
         $data['posts'] = $posts;
+
+        Log::info('A user just visited the index page.');
 
         return view('posts.index', $data);
     }
@@ -46,9 +50,9 @@ class PostsController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request, \App\Models\Post::$rules);
+        $this->validate($request, Post::$rules);
 
-        $post = new \App\Models\Post();
+        $post = new Post();
         $post->title = $request->title;
         $post->url = $request->url;
         $post->content = $request->content;
@@ -56,6 +60,8 @@ class PostsController extends Controller
         $post->save();
 
         $request->session()->flash("successMessage", "Your post was saved successfully");
+
+        Log::info($post);
 
         return \Redirect::action('PostsController@index');
     }
@@ -68,7 +74,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = \App\Models\Post::find($id);
+        $post = Post::findOrFail($id);
 
         $data['post'] = $post;
 
@@ -83,7 +89,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $post = \App\Models\Post::find($id);
+        $post = Post::findOrFail($id);
         $data['post'] = $post;
 
         return view('posts.edit', $data);
@@ -99,9 +105,9 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
 
-        $this->validate($request, \App\Models\Post::$rules);
+        $this->validate($request, Post::$rules);
 
-        $post = \App\Models\Post::find($id);
+        $post = Post::findOrFail($id);
 
         $post->title = $request->title;
         $post->content = $request->content;
@@ -124,7 +130,7 @@ class PostsController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $post = \App\Models\Post::find($id);
+        $post = Post::findOrFail($id);
 
         $post->delete();
 
