@@ -61,6 +61,8 @@ class PostsController extends Controller
 
         $request->session()->flash("successMessage", "Your post was saved successfully");
 
+        Log::info($post);
+
         return \Redirect::action('PostsController@index');
     }
 
@@ -72,11 +74,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-
-        if (!$post) {
-            abort(404);
-        }
+        $post = Post::findOrFail($id);
 
         $data['post'] = $post;
 
@@ -91,7 +89,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         $data['post'] = $post;
 
         return view('posts.edit', $data);
@@ -109,7 +107,7 @@ class PostsController extends Controller
 
         $this->validate($request, Post::$rules);
 
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
         $post->title = $request->title;
         $post->content = $request->content;
@@ -132,7 +130,7 @@ class PostsController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
         $post->delete();
 

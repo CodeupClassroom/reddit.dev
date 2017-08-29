@@ -29,17 +29,17 @@ Route::get('create-user', function() {
 
 
 // // Routes below are for demo purposes, not the application.
-// Route::get('/uppercase/{word}', 'HomeController@uppercase');
-// Route::get('/lowercase/{word}', 'HomeController@lowercase');
-// Route::get('/increment/{number}', 'HomeController@increment');
-// Route::get('/add/{num1}/{num2}', 'HomeController@add');
-// Route::get('/sayhello/{name}', 'HomeController@showWelcome');
-// Route::get('/rolldice/{guess}', 'HomeController@rolldice');
-// Route::get('/sample/{str}', 'SampleController@firstLetter');
-// Route::get('/process/{num}', 'SampleController@processNum');
-// Route::get('/double/{num}', 'SampleController@doubleNum');
-// Route::get('/triple/{num}', 'SampleController@tripleNum');
-// Route::get('zero', 'HomeController@resetToZero');
+Route::get('/uppercase/{word}', 'HomeController@uppercase');
+Route::get('/lowercase/{word}', 'HomeController@lowercase');
+Route::get('/increment/{number}', 'HomeController@increment');
+Route::get('/add/{num1}/{num2}', 'HomeController@add');
+Route::get('/sayhello/{name}', 'HomeController@showWelcome');
+Route::get('/rolldice/{guess}', 'HomeController@rolldice');
+Route::get('/sample/{str}', 'SampleController@firstLetter');
+Route::get('/process/{num}', 'SampleController@processNum');
+Route::get('/double/{num}', 'SampleController@doubleNum');
+Route::get('/triple/{num}', 'SampleController@tripleNum');
+Route::get('zero', 'HomeController@resetToZero');
 
 // // Lecture example resource route
 // Route::resource('dogs', 'DogsController');
