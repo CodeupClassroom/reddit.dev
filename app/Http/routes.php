@@ -19,6 +19,16 @@ Route::get('/', 'HomeController@showWelcome');
 // Resource route for requests for Posts
 Route::resource('/posts', 'PostsController');
 
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
 Route::get('create-user', function() {
 	$user = new \App\User();
 	$user->name = "admin";

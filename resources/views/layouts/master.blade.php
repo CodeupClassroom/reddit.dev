@@ -12,16 +12,22 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+    @yield('styles')
+
 </head>
 <body>
 
-@if (session()->has('successMessage'))
-    <div class="alert alert-success">{{ session('successMessage') }}</div>
-@endif
+    @include('layouts.partials._navbar')
+    {{ (Auth::check()) ? "User is logged in!" : "User is logged out!" }}
+    {{ Auth::user() }}
 
-@if (session()->has('errorMessage'))
-    <div class="alert alert-error">{{ session('errorMessage') }}</div>
-@endif
+    @if (session()->has('successMessage'))
+        <div class="alert alert-success">{{ session('successMessage') }}</div>
+    @endif
+
+    @if (session()->has('errorMessage'))
+        <div class="alert alert-error">{{ session('errorMessage') }}</div>
+    @endif
 
     @yield('content')
 
