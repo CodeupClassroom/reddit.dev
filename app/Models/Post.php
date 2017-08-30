@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Post extends Model
+class Post extends BaseModel
 {
     public static $rules = [
         'title' => 'required|max:200',
