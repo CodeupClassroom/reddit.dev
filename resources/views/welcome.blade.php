@@ -1,60 +1,54 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title')
+    <title>Welcome!</title>
+@stop
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('styles')
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+    <style>
+        main {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: table;
+            font-weight: 100;
+            font-family: 'Lato';
+        }
+        .content {
+            text-align: center;
+            display: block;
+        }
+        .title {
+            font-size: 96px;
+        }
+    </style>
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+@stop
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <?php if(isset($fullName)): ?>
-                    <div class="title">Hi, <?= $fullName ?>!</div>
-                <?php else :?>
-                    <div class="title">Hello, World!</div>
-                <?php endif; ?>
+@section('content')
 
-                <form method="POST" action="/">
-                    <input type="text" name="name" placeholder="Input your name">
-                    <button type="submit">Submit</button>
-                </form>
+    <main class="container">
+        <div class="content">
+            <?php if(isset($fullName)): ?>
+                <div class="title">Hi, <?= $fullName ?>!</div>
+            <?php else :?>
+                <div class="title">Hello, World!</div>
+            <?php endif; ?>
 
-                <a href="{{action('SampleController@processNum', array(1))}}">Process 1</a>
-                <a href="{{action('SampleController@processNum', array(2))}}">Process 2</a>
-                <a href="{{action('SampleController@processNum', array(3))}}">Process 3</a>
+            <form method="POST" action="/">
+                <input type="text" name="name" placeholder="Input your name">
+                <button type="submit">Submit</button>
+            </form>
 
-
-            </div>
+            <a href="{{action('SampleController@processNum', array(1))}}">Process 1</a>
+            <a href="{{action('SampleController@processNum', array(2))}}">Process 2</a>
+            <a href="{{action('SampleController@processNum', array(3))}}">Process 3</a>
         </div>
-    </body>
-</html>
+    </main>
+
+@stop
+
