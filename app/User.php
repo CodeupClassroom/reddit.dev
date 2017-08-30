@@ -44,4 +44,19 @@ class User extends BaseModel implements AuthenticatableContract,
         $this->attributes['password'] = \Hash::make($value);
 
     }
+
+    // User has many Posts
+    // method name is a plural of the resource that's the "Many"
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post', 'created_by');
+    }
+
+    public function votes()
+    {
+        return $this->hasMany('App\Models\Vote', 'vote_id');
+    }
+
 }
+
+

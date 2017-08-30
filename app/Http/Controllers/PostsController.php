@@ -28,7 +28,10 @@ class PostsController extends Controller
         // $posts = Post::all();
 
         // paginate()
-        $posts = Post::paginate(4);
+        $posts = Post::with('user')->paginate(4);
+
+        // Eager loading the posts w/ users
+        // $posts = Post::with('user')->get();
 
         $data['posts'] = $posts;
 
