@@ -23,16 +23,15 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // all() gives all results
-        // $posts = Post::all();
 
-        // paginate()
-        $posts = Post::with('user')->paginate(4);
-
-        // Eager loading the posts w/ users
-        // $posts = Post::with('user')->get();
+        if($request->has('q')) {
+            $q = $request->q;
+            $posts = Post::search($q);            
+        } else {
+            $posts = Post::with('user')->get();
+        }
 
         $data['posts'] = $posts;
 

@@ -15,7 +15,5 @@
         <p>Updated at: {{ $post->updated_at }} </p>
     @endforeach
 
-    
-
 </div>
 @stop
