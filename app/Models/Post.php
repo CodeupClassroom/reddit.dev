@@ -22,4 +22,10 @@ class Post extends BaseModel
     {
         return $this->hasMany('App\Models\Vote', 'vote_id');
     }
+
+    public static function search($q)
+    {
+        $posts = Post::where('title', 'LIKE', '%' . $q . '%')->get();
+        return $posts;
+    }
 }

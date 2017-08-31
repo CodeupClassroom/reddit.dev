@@ -27,9 +27,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ action('PostsController@index') }}">Posts</a></li>
             </ul>
-            <form class="navbar-form">
+            <form class="navbar-form" action="{{ action('PostsController@index') }}">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input name="q" type="text" class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
