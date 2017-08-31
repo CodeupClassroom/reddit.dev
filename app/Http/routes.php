@@ -13,6 +13,9 @@ use \App\Avenger;
 |
 */
 
+// Test route for query builder lecture
+Route::get('/builder', 'PostsController@testBuilder');
+
 // The following routes are unrelated to the final Reddit clone example
 Route::get('/', 'HomeController@showWelcome');
 
