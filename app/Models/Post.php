@@ -23,9 +23,20 @@ class Post extends BaseModel
         return $this->hasMany('App\Models\Vote', 'vote_id');
     }
 
-    public static function search($q)
+    public static function search($search)
     {
-        $posts = Post::where('title', 'LIKE', '%' . $q . '%')->get();
-        return $posts;
+        $posts = Post::with('user')
+                        ->where('title', 'LIKE', "%$search%")
+                        ->orWhere('content', 'LIKE', "%$search%")
+                        ->orWhere('url', 'LIKE', "%$search%")
+
+                        // ->orWhereHas('user', function($query) use ($search) {
+                        //     $query->where('name', 'like', "%$search%");
+                                
+                        // })
+                        ->orderBy('updated_at', 'DESC');
+        
+        $data['posts'] = $posts;
+        return $data;
     }
 }

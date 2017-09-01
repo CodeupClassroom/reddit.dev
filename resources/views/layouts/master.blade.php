@@ -18,8 +18,8 @@
 <body>
 
     @include('layouts.partials._navbar')
-    {{ (Auth::check()) ? "User is logged in!" : "User is logged out!" }}
-    {{ Auth::user() }}
+    {{-- {{ (Auth::check()) ? "User is logged in!" : "User is logged out!" }} --}}
+    {{-- {{ Auth::user() }} --}}
 
     @if (session()->has('successMessage'))
         <div class="alert alert-success">{{ session('successMessage') }}</div>

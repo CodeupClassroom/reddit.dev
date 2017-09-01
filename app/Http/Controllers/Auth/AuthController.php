@@ -63,7 +63,9 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+
+            // If you're hashing on the user model, remove bcrypt() from this line
+            'password' => $data['password'],
         ]);
     }
 }

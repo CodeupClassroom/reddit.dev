@@ -25,17 +25,16 @@ class PostsController extends Controller
      */
     public function index(Request $request)
     {
-
+        $posts = Post::with('user')
+                ->orderBy('created_at', 'DESC')->paginate(4);
+        
         if($request->has('q')) {
             $q = $request->q;
-            $posts = Post::search($q);            
-        } else {
-            $posts = Post::with('user')->get();
-        }
+            $posts = Post::search($q)->paginate(4);            
+        } 
 
         $data['posts'] = $posts;
 
-        Log::info('A user just visited the index page.');
 
         return view('posts.index', $data);
     }

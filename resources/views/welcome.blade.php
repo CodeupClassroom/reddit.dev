@@ -43,10 +43,6 @@
                 <input type="text" name="name" placeholder="Input your name">
                 <button type="submit">Submit</button>
             </form>
-
-            <a href="{{action('SampleController@processNum', array(1))}}">Process 1</a>
-            <a href="{{action('SampleController@processNum', array(2))}}">Process 2</a>
-            <a href="{{action('SampleController@processNum', array(3))}}">Process 3</a>
         </div>
     </main>
 

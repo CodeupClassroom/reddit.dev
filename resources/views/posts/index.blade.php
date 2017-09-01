@@ -14,6 +14,8 @@
         <p>Created at: {{ $post->created_at }} </p>
         <p>Updated at: {{ $post->updated_at }} </p>
     @endforeach
+    
+    {!! $posts->appends(['q' => Input::get('q')])->render() !!}
 
 </div>
 @stop
